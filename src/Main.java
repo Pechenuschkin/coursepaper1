@@ -50,7 +50,8 @@ public class Main {
         System.out.println();
         // Выводим значение налогов.
         System.out.println("Выводим значение налогов.");
-        EmployeeBook.calculationTaxes();
+        String taxes = "PROGRESSIVE";
+        EmployeeBook.calculationTaxes(taxes);
         System.out.println();
 // Индексация зарплаты по отделам.
         System.out.println("Индексация зарплаты по отделам.");

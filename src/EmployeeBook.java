@@ -43,13 +43,33 @@ public class EmployeeBook {
     }
 
     // Выводим значение налогов.
-    public static void calculationTaxes() {
-        double taxes;
-        for (Employee e : employees) {
-            if (e != null) {
-                taxes = e.getSalary() * 0.13;
-                System.out.println(taxes);
-            }
+    public static void calculationTaxes(String taxes) {
+        double t;
+        switch (taxes) {
+            case "PROPORTIONAL":
+                for (Employee e : employees) {
+                    if (e != null) {
+                        t = e.getSalary() * 0.13;
+                        System.out.println(t);
+                    }
+                }
+                break;
+            case "PROGRESSIVE":
+                for (Employee e : employees) {
+                    if (e != null && e.getSalary() <= 150 && e.getSalary() > 0) {
+                        t = e.getSalary() * 0.13;
+                        System.out.println(t);
+                    } else if (e != null && e.getSalary() > 150 && e.getSalary() <= 350) {
+                        t = e.getSalary() * 0.17;
+                        System.out.println(t);
+                    } else {
+                        t = e.getSalary() * 0.21;
+                        System.out.println(t);
+                    }
+                }
+                break;
+            default:
+                System.out.println("Такой схемы расчётов нет.");
         }
     }
 
